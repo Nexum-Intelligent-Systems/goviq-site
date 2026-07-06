@@ -3,6 +3,29 @@
 Audit date: 2026-07-06. Full findings were delivered in the session conversation;
 this folder contains the actionable follow-ups.
 
+## Status update (same day, after repo access was granted)
+
+Two audit claims were corrected once the real repos were readable, and the
+fixes have been delivered as PRs — the template folders below are therefore
+**superseded**:
+
+- **GovIQ-Main was already heavily configured** (11 KB root CLAUDE.md, 49 KB
+  `.claude/CLAUDE.md`, settings allow/deny lists, 25 agents, hooks, skills).
+  Only the genuinely missing pieces were added via
+  [GovIQ-Main#696](https://github.com/Nexum-Intelligent-Systems/GovIQ-Main/pull/696):
+  the docs-review static-prerender deploy guardrail, the CI-billing caveat,
+  and the PR-hygiene rules.
+- **verifiq already had a CLAUDE.md and `.claude/` agents/skills** but no
+  `.claude/settings.json`. Added via
+  [verifiq#60](https://github.com/Nexum-Intelligent-Systems/verifiq/pull/60):
+  a permission allow/deny list mirroring GovIQ-Main's, plus a Git & PR
+  Hygiene section.
+- **The two zombie PRs (GovIQ-Main#690, document-parser#1) were already
+  closed** on 2026-07-03 — no action was needed.
+
+Still outstanding (only Liam can do these): delete the two broken routines
+(section 1 below), and fix GitHub Actions billing.
+
 ## 1. Broken routines — manual cleanup required (you must do this)
 
 Two recurring routines have been firing uselessly since 2026-06-05. They were
