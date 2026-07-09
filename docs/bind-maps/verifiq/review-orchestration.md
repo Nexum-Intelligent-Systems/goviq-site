@@ -13,7 +13,19 @@ flowchart LR
   n1 -.->|triggers| n3["review.runReview"]
 ```
 
-## Convex functions
+## Convex functions referenced by this module's UI
+
+| Function | Kind | Tables touched | Triggers |
+|---|---|---|---|
+| `reviewData.requestReview` | mutation | `review_inputs` | `review.runReview` |
+
+## UI bindings
+
+| Page | Component | Hook | Convex function |
+|---|---|---|---|
+| `projects/[id]/page.tsx` | ProjectPage | useMutation | `api.reviewData.requestReview` |
+
+## All Convex functions in this module (not just UI-called)
 
 | Function | Kind | Tables touched | Triggers |
 |---|---|---|---|
@@ -33,13 +45,7 @@ flowchart LR
 | `workflow.loadFindings` | internalQuery | `findings` | — |
 | `workflow.saveChallenges` | internalMutation | `challenges` | — |
 | `workflow.loadChallenges` | internalQuery | `challenges` | — |
-| `workflow.saveAdjudications` | internalMutation | `findings`, `adjudications` | — |
+| `workflow.saveAdjudications` | internalMutation | `adjudications`, `findings` | — |
 | `workflow.loadAdjudicated` | internalQuery | `findings` | — |
 | `workflow.saveReport` | internalMutation | `reports`, `report_findings` | — |
 | `workflow.loadReport` | internalQuery | `reports`, `report_findings` | — |
-
-## UI bindings
-
-| Page | Component | Hook | Convex function |
-|---|---|---|---|
-| `projects/[id]/page.tsx` | ProjectPage | useMutation | `api.reviewData.requestReview` |

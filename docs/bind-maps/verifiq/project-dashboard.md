@@ -23,7 +23,29 @@ flowchart LR
   n11 -->|reads/writes| n13[("report_findings")]
 ```
 
-## Convex functions
+## Convex functions referenced by this module's UI
+
+| Function | Kind | Tables touched | Triggers |
+|---|---|---|---|
+| `mutations.viewer` | query | — | — |
+| `projectData.listProjects` | query | `projects` | — |
+| `mutations.createOwnProject` | mutation | `users`, `projects` | — |
+| `projectData.getProjectStatus` | query | `findings` | — |
+| `projectData.getProjectFindings` | query | `findings` | — |
+| `projectData.getProjectReport` | query | `reports`, `report_findings` | — |
+
+## UI bindings
+
+| Page | Component | Hook | Convex function |
+|---|---|---|---|
+| `page.tsx` | SignInBox | useQuery | `api.mutations.viewer` |
+| `page.tsx` | Dashboard | useQuery | `api.projectData.listProjects` |
+| `page.tsx` | Dashboard | useMutation | `api.mutations.createOwnProject` |
+| `projects/[id]/page.tsx` | ProjectPage | useQuery | `api.projectData.getProjectStatus` |
+| `projects/[id]/page.tsx` | ProjectPage | useQuery | `api.projectData.getProjectFindings` |
+| `projects/[id]/page.tsx` | ProjectPage | useQuery | `api.projectData.getProjectReport` |
+
+## All Convex functions in this module (not just UI-called)
 
 | Function | Kind | Tables touched | Triggers |
 |---|---|---|---|
@@ -42,14 +64,3 @@ flowchart LR
 | `projectData.searchFindings` | query | `findings` | — |
 | `projectData.searchDocuments` | query | `documents` | — |
 | `projectData.listProjects` | query | `projects` | — |
-
-## UI bindings
-
-| Page | Component | Hook | Convex function |
-|---|---|---|---|
-| `page.tsx` | SignInBox | useQuery | `api.mutations.viewer` |
-| `page.tsx` | Dashboard | useQuery | `api.projectData.listProjects` |
-| `page.tsx` | Dashboard | useMutation | `api.mutations.createOwnProject` |
-| `projects/[id]/page.tsx` | ProjectPage | useQuery | `api.projectData.getProjectStatus` |
-| `projects/[id]/page.tsx` | ProjectPage | useQuery | `api.projectData.getProjectFindings` |
-| `projects/[id]/page.tsx` | ProjectPage | useQuery | `api.projectData.getProjectReport` |

@@ -8,19 +8,24 @@ Planning-permission condition tracking against findings.
 
 ```mermaid
 flowchart LR
-  n0["(no UI bindings found for this module's functions)"]
+  n0["(no UI bindings found for this module)"]
 ```
 
-## Convex functions
+## Convex functions referenced by this module's UI
 
 | Function | Kind | Tables touched | Triggers |
 |---|---|---|---|
-| `planningConditions.listPlanningConditions` | query | `planning_conditions` | — |
-| `planningConditions.searchPlanningConditions` | query | `planning_conditions` | — |
-| `planningConditions.addPlanningCondition` | mutation | `audit_log`, `planning_conditions` | — |
-| `planningConditions.updatePlanningCondition` | mutation | `audit_log` | — |
 
 ## UI bindings
 
 | Page | Component | Hook | Convex function |
 |---|---|---|---|
+
+## All Convex functions in this module (not just UI-called)
+
+| Function | Kind | Tables touched | Triggers |
+|---|---|---|---|
+| `planningConditions.listPlanningConditions` | query | `planning_conditions` | — |
+| `planningConditions.searchPlanningConditions` | query | `planning_conditions` | — |
+| `planningConditions.addPlanningCondition` | mutation | `planning_conditions`, `audit_log` | — |
+| `planningConditions.updatePlanningCondition` | mutation | `audit_log` | — |

@@ -8,7 +8,7 @@ node tools/bind-map/generate-bind-map.mjs --config tools/bind-map/verifiq.config
 
 Each edge below is derived from an actual `useQuery`/`useMutation`/`useAction(api.*)` call and the matching Convex function body — not hand-drawn.
 
-| Module | Convex functions | UI bindings found |
+| Module | Convex functions referenced | UI bindings found |
 |---|---|---|
 | [Auth](./auth.md) | 0 | 0 |
 | [Ingest & Upload](./ingest-upload.md) | 11 | 4 |
